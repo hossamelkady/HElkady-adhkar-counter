@@ -1,0 +1,14 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>عداد الأذكار</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#15803d"><link rel="stylesheet" href="style.css"><style>:root{--c:#15803d}
+#tap{width:230px;height:230px;border-radius:50%;font-size:64px;margin:14px auto;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff;box-shadow:0 8px 20px #0003;user-select:none}
+#tap:active{transform:scale(.96)}#dtext{font-size:22px;text-align:center;line-height:1.8;min-height:80px}
+.bar{height:10px;background:#e2e8f0;border-radius:6px;overflow:hidden}.bar>div{height:100%;background:var(--c)}
+.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.item span{flex:1;cursor:pointer}.item.sel span{font-weight:700;color:var(--c)}
+.stat{display:flex;justify-content:space-between}</style></head><body>
+<header>📿 عداد الأذكار <span id="today" class="muted" style="color:#fff"></span></header><main>
+<div class="card"><div id="dtext"></div><div class="bar"><div id="prog" style="width:0"></div></div>
+<div id="tap">0</div><div class="row"><button class="alt" id="reset">تصفير العداد</button></div></div>
+<div class="card"><b>الأذكار</b><div id="list"></div></div>
+<div class="card"><b>أضف ذكر</b><label>النص</label><textarea id="newText" rows="2"></textarea><label>العدد المستهدف</label><input id="newTarget" type="number" min="1" value="33"><br><br><button id="add">إضافة</button></div>
+<div class="card"><b>آخر 7 أيام</b><div id="stats"></div></div></main>
+<script src="logic.js"></script><script src="app.js"></script></body></html>

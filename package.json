@@ -1,0 +1,10 @@
+{
+  "name": "helkady-adhkar-counter",
+  "version": "1.0.0",
+  "description": "Adhkar and tasbih counter PWA: built-in adhkar with targets, add and delete your own, daily stats, no ads, offline.",
+  "scripts": {
+    "test": "node test.js",
+    "start": "npx --yes serve ."
+  },
+  "license": "MIT"
+}

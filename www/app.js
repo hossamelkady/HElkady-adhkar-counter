@@ -1,6 +1,7 @@
 const $=id=>document.getElementById(id);
-const load=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))||f}catch(e){return f}};
-let custom=load('adh-custom',[]);let state=load('adh-state',{counts:{},daily:{},total:0});let sel=localStorage.getItem('adh-sel')||'b1';
+const load=(k,f)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null||typeof v!==typeof f||Array.isArray(v)!==Array.isArray(f)?f:v}catch(e){return f}};
+let custom=load('adh-custom',[]).filter(x=>x&&typeof x.id==='string'&&typeof x.text==='string'&&Number.isFinite(x.target)&&x.target>0).map(x=>Object.assign({},x,{custom:true}));
+let state=load('adh-state',{counts:{},daily:{},total:0});if(!state.counts||typeof state.counts!=='object')state.counts={};if(!state.daily||typeof state.daily!=='object')state.daily={};let sel=localStorage.getItem('adh-sel')||'b1';
 const all=()=>ADH.BUILTIN.concat(custom);
 function save(){localStorage.setItem('adh-custom',JSON.stringify(custom));localStorage.setItem('adh-state',JSON.stringify(state));localStorage.setItem('adh-sel',sel);}
 function cur(){return all().find(x=>x.id===sel)||all()[0];}

@@ -1,4 +1,4 @@
-const assert=require('assert');const A=require('./logic.js');
+const assert=require('assert');const A=require('./www/logic.js');
 let l=A.addCustom(A.BUILTIN,'  سبحان الله العظيم ',50,()=>'c1');
 assert.strictEqual(l.length,A.BUILTIN.length+1);assert.strictEqual(l[l.length-1].text,'سبحان الله العظيم');
 assert.throws(()=>A.addCustom(l,'',5));assert.throws(()=>A.addCustom(l,'x',0));
